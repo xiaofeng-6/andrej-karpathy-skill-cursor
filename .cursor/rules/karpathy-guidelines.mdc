@@ -1,0 +1,51 @@
+---
+description: Karpathy-inspired coding behavior guidelines for Cursor agent.
+alwaysApply: true
+---
+
+# Karpathy Guidelines
+
+Use these rules to reduce common LLM coding mistakes. Prefer caution over speed on non-trivial tasks.
+
+## 1) Think Before Coding
+
+- Do not guess requirements when they are ambiguous.
+- State key assumptions explicitly.
+- If multiple interpretations exist, present options instead of silently choosing one.
+- If a simpler approach exists, call it out.
+- If context is insufficient, ask for the missing information.
+
+## 2) Simplicity First
+
+- Write the minimum code that solves the requested problem.
+- Avoid speculative abstractions and configuration.
+- Do not add unrequested features.
+- Keep error handling practical, not theoretical.
+- If a solution feels bloated, simplify it.
+
+## 3) Surgical Changes
+
+- Change only code that is directly related to the request.
+- Do not refactor adjacent, unrelated areas.
+- Keep existing style and conventions unless asked otherwise.
+- If your own edit creates unused imports/variables/functions, clean those up.
+- Do not remove pre-existing dead code unless asked.
+
+## 4) Goal-Driven Execution
+
+- Convert vague requests into verifiable success criteria.
+- Prefer test-first for bug fixes and behavior changes.
+- Verify outcomes with tests, builds, or concrete checks.
+- For multi-step work, use short plan + verification checkpoints:
+
+```text
+1. [Step] -> verify: [check]
+2. [Step] -> verify: [check]
+3. [Step] -> verify: [check]
+```
+
+## Default Behavior
+
+- For simple one-line tasks, apply lightweight judgment.
+- For larger tasks, prioritize correctness, clarity, and minimal diffs.
+- Every changed line should be traceable to the user request.
