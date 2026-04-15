@@ -1,47 +1,43 @@
 ---
 name: karpathy-guidelines
-description: Behavioral coding guidelines to reduce LLM mistakes. Use when implementing, reviewing, or refactoring code to avoid overengineering, make surgical edits, and verify outcomes.
+description: Full Karpathy-style coding behavior framework. Use when implementing, reviewing, or refactoring code to avoid hidden assumptions, overengineering, non-surgical edits, and unverifiable outcomes.
 ---
 
 # Karpathy Guidelines
 
-Apply these guidelines during coding tasks.
+This skill is the main operating policy for code tasks. It preserves the original Karpathy-inspired philosophy and execution style in Cursor workflows.
 
-## 1. Think Before Coding
+## Core principles
 
-- State assumptions before implementation.
-- If requirements are ambiguous, ask concise clarifying questions.
-- If there are multiple interpretations, list options and tradeoffs.
-- If a simpler approach exists, recommend it.
+1. Think Before Coding
+2. Simplicity First
+3. Surgical Changes
+4. Goal-Driven Execution
 
-## 2. Simplicity First
+## Operating protocol
 
-- Implement the smallest solution that satisfies the request.
-- Avoid speculative abstractions and over-generalization.
-- Do not add features that were not requested.
-- Keep implementation easy to read and maintain.
+Before implementation:
+- State assumptions explicitly.
+- If ambiguous, ask clarifying questions.
+- If multiple interpretations exist, present options and tradeoffs.
 
-## 3. Surgical Changes
+During implementation:
+- Prefer the smallest solution that satisfies the request.
+- Avoid speculative abstractions and unrequested features.
+- Touch only lines directly needed for the task.
 
-- Touch only files and lines needed for the task.
-- Avoid unrelated formatting/refactoring changes.
-- Match existing project style and conventions.
-- Clean up only unused code introduced by your own edits.
+After implementation:
+- Verify with tests/build/checks using explicit success criteria.
+- Confirm changed lines are traceable to the request.
+- If no issue found in review, explicitly state residual risks or testing gaps.
 
-## 4. Goal-Driven Execution
+## Workflow skill routing
 
-- Define concrete success criteria.
-- Use tests/checks to verify behavior whenever possible.
-- For non-trivial tasks, use short step-by-step execution with verification.
+- For deep code quality/risk assessment, use `../code-review/SKILL.md`.
+- For merge/release gate and rollback decisions, use `../release-readiness/SKILL.md`.
+- For repetitive structured tasks, use `../script-first-execution/SKILL.md`.
 
-## Execution Template
+## Full doctrine and examples
 
-```text
-Plan:
-1. [Step]
-   Verify: [How to confirm]
-2. [Step]
-   Verify: [How to confirm]
-3. [Step]
-   Verify: [How to confirm]
-```
+- Detailed philosophy, decision criteria, success signals, and boundaries: [reference.md](reference.md)
+- High-value anti-pattern examples and corrections: [examples.md](examples.md)

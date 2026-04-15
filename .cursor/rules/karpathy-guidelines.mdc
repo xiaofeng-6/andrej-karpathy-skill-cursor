@@ -1,42 +1,62 @@
 ---
-description: Karpathy-inspired coding behavior guidelines for Cursor agent.
+description: Karpathy-inspired bilingual coding behavior guidelines for Cursor agent.
 alwaysApply: true
 ---
 
-# Karpathy Guidelines
+# Karpathy Guidelines / Karpathy 双语规则
 
 Use these rules to reduce common LLM coding mistakes. Prefer caution over speed on non-trivial tasks.
+使用这些规则减少常见的 LLM 编码错误。对于非简单任务，优先谨慎而非速度。
 
-## 1) Think Before Coding
+## 1) Think Before Coding / 编码前先思考
 
 - Do not guess requirements when they are ambiguous.
+- 需求有歧义时，不要猜测。
 - State key assumptions explicitly.
+- 明确写出关键假设。
 - If multiple interpretations exist, present options instead of silently choosing one.
+- 如果存在多种理解，先给出选项，不要默认替用户拍板。
 - If a simpler approach exists, call it out.
+- 如果有更简单方案，主动指出。
 - If context is insufficient, ask for the missing information.
+- 上下文不足时，先补充信息再执行。
 
-## 2) Simplicity First
+## 2) Simplicity First / 简单优先
 
 - Write the minimum code that solves the requested problem.
+- 只写能解决问题的最小代码。
 - Avoid speculative abstractions and configuration.
+- 避免“为未来而设计”的抽象和配置。
 - Do not add unrequested features.
+- 不增加未被要求的功能。
 - Keep error handling practical, not theoretical.
+- 错误处理务实即可，不做过度理论化设计。
 - If a solution feels bloated, simplify it.
+- 方案显得臃肿时，主动精简。
 
-## 3) Surgical Changes
+## 3) Surgical Changes / 手术式改动
 
 - Change only code that is directly related to the request.
+- 只改与需求直接相关的代码。
 - Do not refactor adjacent, unrelated areas.
+- 不重构相邻但无关的区域。
 - Keep existing style and conventions unless asked otherwise.
+- 除非用户要求，否则保持现有风格和约定。
 - If your own edit creates unused imports/variables/functions, clean those up.
+- 你自己改动引入的无用导入/变量/函数要清理。
 - Do not remove pre-existing dead code unless asked.
+- 未被要求时，不删除既有死代码。
 
-## 4) Goal-Driven Execution
+## 4) Goal-Driven Execution / 目标驱动执行
 
 - Convert vague requests into verifiable success criteria.
+- 把模糊需求转成可验证的成功标准。
 - Prefer test-first for bug fixes and behavior changes.
+- 修复 Bug 或改行为时，优先测试先行。
 - Verify outcomes with tests, builds, or concrete checks.
+- 用测试、构建或明确检查来验证结果。
 - For multi-step work, use short plan + verification checkpoints:
+- 多步骤任务使用“短计划 + 验证点”。
 
 ```text
 1. [Step] -> verify: [check]
@@ -44,8 +64,13 @@ Use these rules to reduce common LLM coding mistakes. Prefer caution over speed 
 3. [Step] -> verify: [check]
 ```
 
-## Default Behavior
+## Default Behavior / 默认行为
 
 - For simple one-line tasks, apply lightweight judgment.
+- 对一行级简单任务，使用轻量判断。
 - For larger tasks, prioritize correctness, clarity, and minimal diffs.
+- 对复杂任务，优先正确性、清晰度和最小改动。
 - Every changed line should be traceable to the user request.
+- 每一行改动都应可追溯到用户需求。
+- For complex workflows, apply matching skills in `.cursor/skills/` (review, release, script-first execution).
+- 复杂流程优先调用 `.cursor/skills/` 对应技能（评审、发布、脚本优先执行）。
